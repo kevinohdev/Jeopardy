@@ -6,6 +6,8 @@ const Categories = () => {
   const [showAnser, setShowAnswer] = useState(false)
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const [name, setName] = useState('')
+
 
   interface Clue {
     id: number;
@@ -20,11 +22,10 @@ const Categories = () => {
   useEffect(() => {
     fetch('http://jservice.io/api/clues')
       .then(response => response.json())
-      .then(res => setClues(res.slice(0, 10)))
+      .then(res => setClues(res))
       .catch(err => setError(err))
   }, [])
 
-  console.log(clues)
 
   const handleClick = () => {
     //when the Clue is clicked, reveal the answer
@@ -49,22 +50,20 @@ const Categories = () => {
     showNext();
   }
 
+  console.log('henlo')
 
   return (
-    <div className="container mx-auto bg-sky-500 min-h-screen grid grid-cols-1 grid-rows-3 justify-center  " >
-      <div className='min-w-full text-center'>
-
-        <div className='border-4 p-4'>{clues[index]?.category.title} - ${clues[index]?.value}</div>
-        {showAnser && <div>{clues[index]?.answer}</div>}
-
+    <div className="container mx-auto bg-sky-500 min-h-screen flex flex-col justify-center  " >
+      <div className='min-w-full text-center border-4 p-4'>
+        {clues[index]?.category.title} - ${clues[index]?.value}
       </div>
-      <div className='grid grid-cols-2 min-w-full text-center border-4 p-4'>
+      <div className='min-w-full flex-1 text-center border-4 p-4 flex justify-center items-center'>
+        {!showAnser && clues[index]?.question}
+        {showAnser && clues[index]?.answer}
+      </div>
+      <div className='grid grid-cols-4 min-w-full text-center border-4 p-4'>
         <div className='border-4 p-4' onClick={handleClick}>
-          {clues[index]?.question}
-        </div>
-        <div className='border-4 p-4' onClick={showNext}>
-          <div>{score}</div>
-          <div>name</div>
+          Reveal Answer
         </div>
         <div className='border-4 p-4' onClick={correctAnswer}>
           <button type='button'>Correct</button>
@@ -72,8 +71,19 @@ const Categories = () => {
         <div className='border-4 p-4' onClick={incorrectAnswer}>
           <button type='button'>Incorrect</button>
         </div>
+        <div className='border-4 p-4' onClick={incorrectAnswer}>
+          <button type='button'>Skip</button>
+        </div>
       </div>
-    </div>
+      <div className='flex flex-col min-w-full text-center border-4 p-4'>
+        <div className='border-4 p-4'>${score}</div>
+        <div className='border-4 p-4'>{name}</div>
+        <form>
+          <input placeholder='enter name'></input>
+          <button type='submit'>x</button>
+        </form>
+      </div>
+    </div >
   )
 }
 
