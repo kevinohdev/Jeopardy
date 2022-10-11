@@ -11,7 +11,7 @@ function App() {
 
 
   return (
-    <div className='bg-blue-700'>
+    <div className='bg-gray-900'>
       <Categories></Categories>
     </div>
   )

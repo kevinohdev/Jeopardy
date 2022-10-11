@@ -53,34 +53,39 @@ const Categories = () => {
   console.log('henlo')
 
   return (
-    <div className="container mx-auto bg-sky-500 min-h-screen flex flex-col justify-center  " >
-      <div className='min-w-full text-center border-4 p-4'>
-        {clues[index]?.category.title} - ${clues[index]?.value}
-      </div>
-      <div className='min-w-full flex-1 text-center border-4 p-4 flex justify-center items-center'>
+    <div className="container mx-auto min-h-screen flex flex-col" >
+      <div className='grid grid-cols-2 justify-around min-w-full text-center font-robo uppercase border-spacing-3'>
+        <div className='bg-blue-700 m-1'>
+          {clues[index]?.category.title}
+        </div>
+        <div className='bg-blue-700 m-1'>
+          ${clues[index]?.value}
+        </div>
+      </div >
+      <div className='bg-blue-700 flex-1 text-center flex justify-center items-center m-1'>
         {!showAnser && clues[index]?.question}
         {showAnser && clues[index]?.answer}
       </div>
-      <div className='grid grid-cols-4 min-w-full text-center border-4 p-4'>
-        <div className='border-4 p-4' onClick={handleClick}>
+      <div className='grid grid-cols-4 min-w-full text-center '>
+        <div className='bg-blue-700 m-1' onClick={handleClick}>
           Reveal Answer
         </div>
-        <div className='border-4 p-4' onClick={correctAnswer}>
+        <div className='bg-blue-700 m-1' onClick={correctAnswer}>
           <button type='button'>Correct</button>
         </div>
-        <div className='border-4 p-4' onClick={incorrectAnswer}>
+        <div className='bg-blue-700 m-1' onClick={incorrectAnswer}>
           <button type='button'>Incorrect</button>
         </div>
-        <div className='border-4 p-4' onClick={incorrectAnswer}>
+        <div className='bg-blue-700 m-1' onClick={incorrectAnswer}>
           <button type='button'>Skip</button>
         </div>
       </div>
-      <div className='flex flex-col min-w-full text-center border-4 p-4'>
-        <div className='border-4 p-4'>${score}</div>
-        <div className='border-4 p-4'>{name}</div>
+      <div className='font-fraunces flex flex-col min-w-full text-center'>
+        <div className='bg-blue-700 m-1'>${score}</div>
+        <div className='bg-blue-700 m-1'>{name}</div>
         <form>
-          <input placeholder='enter name'></input>
-          <button type='submit'>x</button>
+          <input className='bg-blue-700' placeholder='enter name'></input>
+          <button className='bg-blue-700' type='submit'>x</button>
         </form>
       </div>
     </div >

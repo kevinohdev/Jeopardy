@@ -9,7 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        fraunces: "'Fraunces', serif",
+        robo: "'Roboto Condensed', sans-serif"
       }
     },
   },
