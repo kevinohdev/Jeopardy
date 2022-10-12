@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 const Categories = () => {
   const [clues, setClues] = useState<Clue[]>([])
   const [error, setError] = useState({})
-  const [showAnser, setShowAnswer] = useState(false)
+  const [showAnswer, setShowAnswer] = useState(false)
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [name, setName] = useState('')
@@ -54,39 +54,35 @@ const Categories = () => {
 
   return (
     <div className="container mx-auto min-h-screen flex flex-col" >
-      <div className='grid grid-cols-2 justify-around min-w-full text-center font-robo uppercase border-spacing-3'>
-        <div className='bg-blue-700 m-1'>
+      <div className='grid grid-cols-2 justify-around min-w-full text-center font-robo  
+      uppercase border-spacing-3'>
+        <div className='bg-blue-700 m-1 p-4 text-white text-5xl'>
           {clues[index]?.category.title}
         </div>
-        <div className='bg-blue-700 m-1'>
+        <div className='bg-blue-700 m-1 p-4 text-yellow-300 text-5xl'>
           ${clues[index]?.value}
         </div>
       </div >
-      <div className='bg-blue-700 flex-1 text-center flex justify-center items-center m-1'>
-        {!showAnser && clues[index]?.question}
-        {showAnser && clues[index]?.answer}
+      <div className='bg-blue-700 flex-1 text-center flex justify-center items-center m-1 text-3xl text-white font-fraunces uppercase p-10'>
+        {!showAnswer && clues[index]?.question}
+        {showAnswer && clues[index]?.answer}
       </div>
-      <div className='grid grid-cols-4 min-w-full text-center '>
-        <div className='bg-blue-700 m-1' onClick={handleClick}>
+      <div className='grid grid-cols-4 min-w-full text-center text-gray-300'>
+        <div className='bg-blue-700 m-1 p-4 font-extrabold' onClick={handleClick}>
           Reveal Answer
         </div>
-        <div className='bg-blue-700 m-1' onClick={correctAnswer}>
+        <div className='bg-blue-700 m-1 p-4 text-green-500 font-extrabold text-l' onClick={correctAnswer}>
           <button type='button'>Correct</button>
         </div>
-        <div className='bg-blue-700 m-1' onClick={incorrectAnswer}>
+        <div className='bg-blue-700 m-1 p-4 text-red-500 font-extrabold text-l' onClick={incorrectAnswer}>
           <button type='button'>Incorrect</button>
         </div>
-        <div className='bg-blue-700 m-1' onClick={incorrectAnswer}>
+        <div className='bg-blue-700 m-1 p-4 font-extrabold' onClick={showNext}>
           <button type='button'>Skip</button>
         </div>
       </div>
-      <div className='font-fraunces flex flex-col min-w-full text-center'>
-        <div className='bg-blue-700 m-1'>${score}</div>
-        <div className='bg-blue-700 m-1'>{name}</div>
-        <form>
-          <input className='bg-blue-700' placeholder='enter name'></input>
-          <button className='bg-blue-700' type='submit'>x</button>
-        </form>
+      <div className='font-robo flex flex-col min-w-full text-center'>
+        <div className='bg-blue-700 m-1 p-4  text-white text-9xl'>${score}</div>
       </div>
     </div >
   )
