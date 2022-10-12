@@ -20,7 +20,7 @@ const Categories = () => {
   }
 
   useEffect(() => {
-    fetch('http://jservice.io/api/clues')
+    fetch('https://jservice.io/api/clues')
       .then(response => response.json())
       .then(res => setClues(res))
       .catch(err => setError(err))
