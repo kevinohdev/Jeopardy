@@ -52,8 +52,6 @@ const Categories = () => {
     showNext();
   }
 
-
-
   return (
     <div className="container mx-auto min-h-screen flex flex-col" >
       <div className='grid grid-cols-2 justify-around min-w-full text-center font-robo  
