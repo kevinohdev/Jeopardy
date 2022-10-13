@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 
 const Categories = () => {
+  const randomNumber = Math.floor(Math.random() * 101);
+
   const [clues, setClues] = useState<Clue[]>([])
   const [error, setError] = useState({})
   const [showAnswer, setShowAnswer] = useState(false)
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(randomNumber);
   const [score, setScore] = useState(0);
-  const [name, setName] = useState('')
+
 
 
   interface Clue {
@@ -50,7 +52,7 @@ const Categories = () => {
     showNext();
   }
 
-  console.log('henlo')
+
 
   return (
     <div className="container mx-auto min-h-screen flex flex-col" >
