@@ -64,8 +64,8 @@ const Categories = () => {
         </div>
       </div >
       <div className='bg-blue-700 flex-1 text-center flex justify-center items-center m-1 text-3xl text-white font-fraunces uppercase p-10'>
-        {!showAnswer && clues[index]?.question}
-        {showAnswer && clues[index]?.answer}
+        {!showAnswer && clues[index]?.question.replaceAll(/<i>|<\/I>|\\/gi, '')}
+        {showAnswer && clues[index]?.answer.replaceAll(/<i>|<\/I>|\\/gi, '')}
       </div>
       <div className='grid grid-cols-4 min-w-full text-center text-gray-300'>
         <div className='bg-blue-700 m-1 p-4 font-extrabold' onClick={handleClick}>
