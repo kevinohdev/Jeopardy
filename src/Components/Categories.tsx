@@ -9,8 +9,6 @@ const Categories = () => {
   const [index, setIndex] = useState(randomNumber);
   const [score, setScore] = useState(0);
 
-
-
   interface Clue {
     id: number;
     question: string;
@@ -30,7 +28,6 @@ const Categories = () => {
 
 
   const handleClick = () => {
-    //when the Clue is clicked, reveal the answer
     setShowAnswer(prev => !prev)
   }
 
@@ -43,42 +40,50 @@ const Categories = () => {
   }
 
   const correctAnswer = () => {
-    setScore(prev => prev + clues[index].value)
-    showNext();
+    if (showAnswer) {
+      setScore(prev => prev + clues[index].value)
+      showNext();
+    }
   }
 
   const incorrectAnswer = () => {
-    setScore(prev => prev - clues[index].value)
-    showNext();
+    if (showAnswer) {
+      setScore(prev => prev - clues[index].value)
+      showNext();
+    }
   }
 
   return (
     <div className="container mx-auto min-h-screen flex flex-col" >
       <div className='grid grid-cols-2 justify-around min-w-full text-center font-robo  
       uppercase border-spacing-3'>
-        <div className='bg-blue-700 m-1 p-4 text-white text-5xl'>
-          {clues[index]?.category.title}
+        <div className='grid bg-blue-700 m-1 text-white text-[5.5vw]'>
+          <div className='self-center'>
+            {clues[index]?.category.title}
+          </div>
         </div>
-        <div className='bg-blue-700 m-1 p-4 text-yellow-300 text-5xl'>
-          ${clues[index]?.value}
+        <div className='grid bg-blue-700 m-1  text-yellow-300 text-[7vw]'>
+          <div className='self-center'>
+            ${clues[index]?.value}
+          </div>
         </div>
       </div >
       <div className='bg-blue-700 flex-1 text-center flex justify-center items-center m-1 text-3xl text-white font-fraunces uppercase p-10'>
-        {!showAnswer && clues[index]?.question.replaceAll(/<i>|<\/I>|\\/gi, '')}
-        {showAnswer && clues[index]?.answer.replaceAll(/<i>|<\/I>|\\/gi, '')}
+        {!showAnswer && clues[index]?.question.replaceAll(/<i>|<\/i>|\\/gi, '')}
+        {showAnswer && clues[index]?.answer.replaceAll(/<i>|<\/i>|\\/gi, '')}
       </div>
       <div className='grid grid-cols-4 min-w-full text-center text-gray-300'>
         <div className='bg-blue-700 m-1 p-4 font-extrabold' onClick={handleClick}>
           Reveal Answer
         </div>
-        <div className='bg-blue-700 m-1 p-4 text-green-500 font-extrabold text-l' onClick={correctAnswer}>
-          <button type='button'>Correct</button>
+        <div className='grid bg-blue-700 m-1 p-4 text-green-500 font-extrabold text-l' onClick={correctAnswer}>
+          <button type='button' className='self-center'>Correct</button>
         </div>
-        <div className='bg-blue-700 m-1 p-4 text-red-500 font-extrabold text-l' onClick={incorrectAnswer}>
-          <button type='button'>Incorrect</button>
+        <div className='grid bg-blue-700 m-1 p-4 text-red-500 font-extrabold text-l' onClick={incorrectAnswer}>
+          <button type='button' className='self-center'>Incorrect</button>
         </div>
-        <div className='bg-blue-700 m-1 p-4 font-extrabold' onClick={showNext}>
-          <button type='button'>Skip</button>
+        <div className='grid bg-blue-700 m-1 p-4 font-extrabold' onClick={showNext}>
+          <button type='button' className='self-center'>Skip</button>
         </div>
       </div>
       <div className='font-robo flex flex-col min-w-full text-center'>
