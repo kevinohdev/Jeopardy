@@ -57,37 +57,37 @@ const Categories = () => {
     <div className="container mx-auto min-h-screen flex flex-col" >
       <div className='grid grid-cols-2 justify-around min-w-full text-center font-robo  
       uppercase border-spacing-3'>
-        <div className='grid bg-blue-700 m-1 text-white text-[5.5vw]'>
-          <div className='self-center'>
+        <div className='grid bg-blue-700 m-1 text-white lg:text-5xl text-3xl'>
+          <div className='self-center p-4'>
             {clues[index]?.category.title}
           </div>
         </div>
-        <div className='grid bg-blue-700 m-1  text-yellow-300 text-[7vw]'>
-          <div className='self-center'>
+        <div className='grid bg-blue-700 m-1  text-yellow-300 lg:text-5xl text-3xl'>
+          <div className='self-center p-4'>
             ${clues[index]?.value}
           </div>
         </div>
       </div >
-      <div className='bg-blue-700 flex-1 text-center flex justify-center items-center m-1 text-3xl text-white font-fraunces uppercase p-10'>
+      <div className='bg-blue-700 flex-1 text-center flex justify-center items-center m-1 lg:text-3xl text-2xl text-white font-fraunces uppercase p-10'>
         {!showAnswer && clues[index]?.question.replaceAll(/<i>|<\/i>|\\/gi, '')}
         {showAnswer && clues[index]?.answer.replaceAll(/<i>|<\/i>|\\/gi, '')}
       </div>
-      <div className='grid grid-cols-4 min-w-full text-center text-gray-300'>
-        <div className='bg-blue-700 m-1 p-4 font-extrabold' onClick={handleClick}>
+      <div className='flex min-w-full text-center text-gray-300 lg:text-xl text-xs'>
+        <div className='bg-blue-700 m-1 p-4 font-extrabold flex-1' onClick={handleClick}>
           Reveal Answer
         </div>
-        <div className='grid bg-blue-700 m-1 p-4 text-green-500 font-extrabold text-l' onClick={correctAnswer}>
+        <div className='grid bg-blue-700 m-1 p-4 text-green-500 font-extrabold flex-1' onClick={correctAnswer}>
           <button type='button' className='self-center'>Correct</button>
         </div>
-        <div className='grid bg-blue-700 m-1 p-4 text-red-500 font-extrabold text-l' onClick={incorrectAnswer}>
+        <div className='grid bg-blue-700 m-1 p-4 text-red-500 font-extrabold flex-1' onClick={incorrectAnswer}>
           <button type='button' className='self-center'>Incorrect</button>
         </div>
-        <div className='grid bg-blue-700 m-1 p-4 font-extrabold' onClick={showNext}>
+        <div className='grid bg-blue-700 m-1 p-4 font-extrabold flex-1' onClick={showNext}>
           <button type='button' className='self-center'>Skip</button>
         </div>
       </div>
       <div className='font-robo flex flex-col min-w-full text-center'>
-        <div className='bg-blue-700 m-1 p-4  text-white text-9xl'>${score}</div>
+        <div className='bg-blue-700 m-1 p-4  text-white lg:text-9xl text-6xl'>${score}</div>
       </div>
     </div >
   )
