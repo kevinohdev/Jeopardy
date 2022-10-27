@@ -73,16 +73,16 @@ const Categories = () => {
         {showAnswer && clues[index]?.answer.replaceAll(/<i>|<\/i>|\\/gi, '')}
       </div>
       <div className='flex min-w-full text-center text-gray-300 lg:text-xl text-xs'>
-        <div className='bg-blue-700 m-1 p-4 font-extrabold flex-1' onClick={handleClick}>
-          Reveal Answer
+        <div className='bg-blue-700 m-1 p-2 font-extrabold flex-1' onClick={handleClick}>
+          <div className='self-center '>Reveal Answer</div>
         </div>
-        <div className='grid bg-blue-700 m-1 p-4 text-green-500 font-extrabold flex-1' onClick={correctAnswer}>
+        <div className='grid bg-blue-700 m-1 p-2 text-green-500 font-extrabold flex-1' onClick={correctAnswer}>
           <button type='button' className='self-center'>Correct</button>
         </div>
-        <div className='grid bg-blue-700 m-1 p-4 text-red-500 font-extrabold flex-1' onClick={incorrectAnswer}>
+        <div className='grid bg-blue-700 m-1 p-2 text-red-500 font-extrabold flex-1' onClick={incorrectAnswer}>
           <button type='button' className='self-center'>Incorrect</button>
         </div>
-        <div className='grid bg-blue-700 m-1 p-4 font-extrabold flex-1' onClick={showNext}>
+        <div className='grid bg-blue-700 m-1 p-2 font-extrabold flex-1' onClick={showNext}>
           <button type='button' className='self-center'>Skip</button>
         </div>
       </div>
