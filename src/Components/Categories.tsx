@@ -54,15 +54,15 @@ const Categories = () => {
   }
 
   return (
-    <div className="container mx-auto min-h-screen flex flex-col" >
+    <div className="container mx-auto min-h-screen flex flex-col">
       <div className='grid grid-cols-2 justify-around min-w-full text-center font-robo  
       uppercase border-spacing-3'>
-        <div className='grid bg-blue-700 m-1 text-white lg:text-5xl text-3xl'>
+        <div className='grid bg-blue-700 m-1 text-white lg:text-5xl sm:text-4xl text-2xl'>
           <div className='self-center p-4'>
             {clues[index]?.category.title}
           </div>
         </div>
-        <div className='grid bg-blue-700 m-1  text-yellow-300 lg:text-5xl text-3xl'>
+        <div className='grid bg-blue-700 m-1  text-yellow-300 lg:text-5xl sm:text-4xl text-2xl'>
           <div className='self-center p-4'>
             ${clues[index]?.value}
           </div>
