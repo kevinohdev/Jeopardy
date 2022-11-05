@@ -1,9 +1,9 @@
-import Categories from './Components/Categories'
+import Jeopardy from './Components/Jeopardy'
 
 function App() {
   return (
     <div className='bg-gray-900 py-1'>
-      <Categories></Categories>
+      <Jeopardy></Jeopardy>
     </div>
   )
 }
