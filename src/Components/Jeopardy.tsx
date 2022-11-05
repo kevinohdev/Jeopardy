@@ -68,14 +68,14 @@ const Jeopardy = () => {
           </div>
         </div>
       </div >
-      <div className='bg-blue-700 flex-1 text-center flex justify-center items-center m-1 lg:text-5xl text-4xl
-       text-white font-fraunces uppercase leading-10'>
-        <div className='w-[50vw]'>
+      <div className='bg-blue-700 flex-1 text-center flex justify-center items-center m-1 lg:text-5xl md:text-4xl text-2xl
+       text-white font-fraunces uppercase'>
+        <div className='w-[80vw] lg:w-[60vw] md:leading-[4rem] leading-[2rem]'>
           {!showAnswer && clues[index]?.question.replaceAll(/<i>|<\/i>|\\/gi, '')}
           {showAnswer && clues[index]?.answer.replaceAll(/<i>|<\/i>|\\/gi, '')}
         </div>
       </div>
-      <div className='flex min-w-full text-center text-gray-300 lg:text-xl text-lg'>
+      <div className='flex min-w-full text-center text-gray-300 lg:text-xl md:text-lg text-xs'>
         <div className='bg-blue-700 m-1 p-4 font-extrabold flex-1' onClick={handleClick}>
           <div className='self-center '>Reveal Answer</div>
         </div>
@@ -92,7 +92,7 @@ const Jeopardy = () => {
       <div className='font-robo flex flex-col min-w-full text-center pb-2'>
         <div className='bg-blue-700 m-1 p-4  text-white lg:text-9xl text-6xl'>${score}</div>
       </div>
-    </div>
+    </div >
   )
 }
 
